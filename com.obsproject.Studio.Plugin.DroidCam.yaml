@@ -6,6 +6,10 @@ sdk: org.kde.Sdk//6.6
 build-extension: true
 separate-locales: false
 appstream-compose: false
+
+finish-args:
+  - --filesystem=/run/usbmuxd:ro
+
 build-options:
   prefix: /app/plugins/DroidCam
 
