@@ -1,5 +1,5 @@
 id: com.obsproject.Studio.Plugin.DroidCam
-branch: stable
+branch: beta
 runtime: com.obsproject.Studio
 runtime-version: stable
 sdk: org.kde.Sdk//6.6
