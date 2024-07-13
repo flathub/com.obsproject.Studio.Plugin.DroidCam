@@ -20,8 +20,8 @@ modules:
         path: com.obsproject.Studio.Plugin.DroidCam.metainfo.xml
 
       - type: archive
-        url: "https://github.com/dev47apps/droidcam-obs-plugin/releases/download/2.3.2/droidcam_obs_2.3.2_linux_flatpak.zip"
-        sha1: b2bf60245be355c8b4b96d0ee8c86e75b827be64
+        url: "https://github.com/dev47apps/droidcam-obs-plugin/releases/download/2.3.3/droidcam_obs_2.3.3_linux_flatpak.zip"
+        sha1: 388ec05af33f8759630577267de3086f4a1c5509
 
     post-install:
       - install -Dm644 --target-directory=${FLATPAK_DEST}/share/metainfo ${FLATPAK_ID}.metainfo.xml
