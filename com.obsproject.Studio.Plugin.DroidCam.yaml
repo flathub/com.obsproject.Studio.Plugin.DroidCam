@@ -2,7 +2,7 @@ id: com.obsproject.Studio.Plugin.DroidCam
 branch: stable
 runtime: com.obsproject.Studio
 runtime-version: stable
-sdk: org.kde.Sdk//6.6
+sdk: org.kde.Sdk//6.5
 build-extension: true
 separate-locales: false
 appstream-compose: false
@@ -12,8 +12,44 @@ finish-args:
 
 build-options:
   prefix: /app/plugins/DroidCam
+  append-ld-library-path: /app/plugins/DroidCam/lib
+  append-pkg-config-path: /app/plugins/DroidCam/lib
 
 modules:
+  - name: libplist
+    cleanup:
+      - /bin
+      - /include
+      - /lib/debug
+      - /lib/libplist++*
+      - /lib/pkgconfig
+      - /share/man
+      - '*.la'
+    config-opts:
+      - --without-cython
+      - --disable-static
+      - --without-tests
+    sources:
+      - type: archive
+        url: "https://github.com/libimobiledevice/libplist/releases/download/2.2.0/libplist-2.2.0.tar.bz2"
+        sha1: a92830a3286442f9ea2eac02db81fcfb149a0812
+
+  - name: libusbmuxd
+    cleanup:
+      - /bin
+      - /include
+      - /lib/debug
+      - /lib/pkgconfig
+      - /share/man
+      - '*.la'
+    config-opts:
+      - --disable-static
+      - --without-tests
+    sources:
+      - type: archive
+        url: "https://github.com/libimobiledevice/libusbmuxd/releases/download/2.0.2/libusbmuxd-2.0.2.tar.bz2"
+        sha1: e3c2c846471ba7c171c01d87cb37d379d53d5f02
+
   - name: droidcam-obs
     buildsystem: simple
     build-commands:
