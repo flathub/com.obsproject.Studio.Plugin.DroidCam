@@ -2,10 +2,9 @@ id: com.obsproject.Studio.Plugin.DroidCam
 branch: stable
 runtime: com.obsproject.Studio
 runtime-version: stable
-sdk: org.kde.Sdk//6.6
+sdk: org.kde.Sdk//6.8
 build-extension: true
 separate-locales: false
-appstream-compose: false
 build-options:
   prefix: /app/plugins/DroidCam
 
@@ -20,9 +19,8 @@ modules:
         path: com.obsproject.Studio.Plugin.DroidCam.metainfo.xml
 
       - type: archive
-        url: "https://github.com/dev47apps/droidcam-obs-plugin/releases/download/2.4.0/droidcam_obs_2.4.0_linux_flatpak.zip"
-        sha256: 2f5ad8eded1b3d46bf23300591b2dab13264a9f71a1836efe0d3fdae56ef57c7
+        url: "https://github.com/dev47apps/droidcam-obs-plugin/releases/download/2.4.1/droidcam_obs_2.4.1_linux_x86_64.zip"
+        sha256: d7c2230b7f964795cba38eb846ec00b5644d4a941cb276ab5eee7a0abc423213
 
     post-install:
       - install -Dm644 --target-directory=${FLATPAK_DEST}/share/metainfo ${FLATPAK_ID}.metainfo.xml
-      - appstream-compose --basename=${FLATPAK_ID} --prefix=${FLATPAK_DEST} --origin=flatpak ${FLATPAK_ID}
